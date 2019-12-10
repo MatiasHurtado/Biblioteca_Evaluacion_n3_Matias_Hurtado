@@ -61,7 +61,11 @@ public class Home_act extends AppCompatActivity {
         Intent i = new Intent(this, Info_act.class);
         startActivity(i);
     }
-
+    public void Base(View v)
+    {
+        Intent i = new Intent(this, Base_Act.class);
+        startActivity(i);
+    }
 
     public void Libros(View view)
     {
