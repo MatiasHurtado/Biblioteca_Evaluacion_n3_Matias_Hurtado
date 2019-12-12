@@ -2,6 +2,7 @@ package chile.maps.biblioteca;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,7 +15,7 @@ public class Libros_act extends AppCompatActivity {
     private Spinner spn;
     private TextView tv;
     private EditText et1, et2;
-    private String[] precios = new String[]{"5000", "12000","45000",};
+    private String[] precios = new String[]{"7000", "22000","45000","88000","156000"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +36,14 @@ public class Libros_act extends AppCompatActivity {
         spn.setAdapter(adapt);
 
     }
-
+    public void Mqtt(View v)
+    {
+        Intent i = new Intent(this, Mqtt_act.class);
+        startActivity(i);
+    }
     public void Calcular(View v)
     {
-        if(spn.getSelectedItem().equals("Farenheit"))
+        if(spn.getSelectedItem().toString().equals("Farenheit"))
         {
             String precio = precios[0];
             int st = Integer.parseInt(et1.getText().toString());
@@ -64,20 +69,46 @@ public class Libros_act extends AppCompatActivity {
             +"el precio final es: "+ resultado);
         }
 
-        if(spn.getSelectedItem().equals("Tesla"))
+        if(spn.getSelectedItem().equals("El Alquimista"))
         {
 
-            String precioTesla = precios[2];
+            String precioElAlquimista = precios[2];
 
             int stock = Integer.parseInt(et1.getText().toString());
             int costo = Integer.parseInt(et2.getText().toString());
-            int precioLibro = Integer.parseInt(precioTesla);
+            int precioLibro = Integer.parseInt(precioElAlquimista);
 
             int resultado = precioLibro*stock+costo;
 
             tv.setText("Stock disponible: " +stock+ "\n"
                     +"el precio final es: "+ resultado);
-        }
+        }if(spn.getSelectedItem().equals("El Poder"))
+    {
+
+        String precioPoder = precios[3];
+
+        int stock = Integer.parseInt(et1.getText().toString());
+        int costo = Integer.parseInt(et2.getText().toString());
+        int precioLibro = Integer.parseInt(precioPoder);
+
+        int resultado = precioLibro*stock+costo;
+
+        tv.setText("Stock disponible: " +stock+ "\n"
+                +"el precio final es: "+ resultado);
+    }if(spn.getSelectedItem().equals("El Despertar"))
+    {
+
+        String precioElDespertar = precios[4];
+
+        int stock = Integer.parseInt(et1.getText().toString());
+        int costo = Integer.parseInt(et2.getText().toString());
+        int precioLibro = Integer.parseInt(precioElDespertar);
+
+        int resultado = precioLibro*stock+costo;
+
+        tv.setText("Stock disponible: " +stock+ "\n"
+                +"el precio final es: "+ resultado);
+    }
     }
 
 }

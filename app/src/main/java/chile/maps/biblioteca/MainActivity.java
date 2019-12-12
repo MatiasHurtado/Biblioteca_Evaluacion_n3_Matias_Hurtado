@@ -78,7 +78,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void git(View view)
+    {
 
+        String[] pre = {"Farenheit","Revival","El Alquimista","El Poder","El Despertar"};
+        Intent i = new Intent(this, github_act.class);
+        i.putExtra("Preciosgit", pre);
+        startActivity(i);
+    }
 
 
     public void Maps(View v)
